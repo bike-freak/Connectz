@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 
 bool isNotFull(char board[6][7]){
@@ -11,6 +12,7 @@ bool isNotFull(char board[6][7]){
     }
     return false;
 }
+
 bool vertical(char board[6][7],char player,int i,int j){
     if(i<3){
         for(int x=i+1;x<i+4;x++){
@@ -18,7 +20,6 @@ bool vertical(char board[6][7],char player,int i,int j){
                 return false;
             }
         }
-        //cout<<"V";
         return true;
     }
     return false;
@@ -31,12 +32,11 @@ bool horizontal(char board[6][7],char player,int i,int j){
                 return false;
             }
         }
-        //cout<<"H";
         return true;
     }
     return false;
 }
-//ld j>2&& i<3
+
 bool leftDiagonal(char board[6][7],char player,int i,int j){
     if(j>2 && i<3){
         for(int x=0;x<4;x++){
@@ -44,7 +44,6 @@ bool leftDiagonal(char board[6][7],char player,int i,int j){
                 return false;
             }
         }
-        //cout<<"LD";
         return true;
     }
     return false;
@@ -57,7 +56,6 @@ bool rightDiagonal(char board[6][7],char player,int i,int j){
                 return false;
             }
         }
-        //cout<<"RD";
         return true;
     }
     return false;
@@ -67,7 +65,6 @@ int checkWin(char board[6][7]){
     for(int i=0;i<6;i++){
         for(int j=0;j<7;j++){
             if(board[i][j]!='.'){
-                //cout<<board[i][j]<<" "<<i<<j;
                 if(vertical(board,board[i][j],i,j) || horizontal(board,board[i][j],i,j) || leftDiagonal(board,board[i][j],i,j) || rightDiagonal(board,board[i][j],i,j)){
                     return board[i][j]=='#'?1:2;
                 }
